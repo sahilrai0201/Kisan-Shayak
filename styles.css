@@ -1,0 +1,199 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+header {
+    background-color: #4CAF50;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Introduction Section */
+#intro {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+#intro h2 {
+    font-size: 2.5em;
+    color: #4CAF50;
+}
+
+/* Crop Growth Stages Section */
+#growth-stages {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.stages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stage {
+    width: 23%;
+    text-align: center;
+}
+
+.stage img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.stage h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+/* Pesticide Form Section */
+#pesticides {
+    padding: 40px 0;
+    background-color: #e9ecef;
+}
+
+.pesticide-form {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.pesticide-form .form-pesticide,
+.pesticide-form .form-group {
+    margin-bottom: 20px;
+}
+
+.pesticide-form label {
+    font-size: 1.2em;
+}
+
+.pesticide-form select,
+.pesticide-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pesticide-form button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pesticide-form button:hover {
+    background-color: #45a049;
+}
+
+/* Contact Section */
+#contact {
+    padding: 40px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form label {
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1em;
+}
