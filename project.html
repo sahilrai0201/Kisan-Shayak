@@ -2,190 +2,185 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisan Shayak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
+
     <script>
-        // Function to handle pesticide form submission
         function handlePesticideFormSubmit(event) {
-            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+            event.preventDefault();
             alert("Your pesticide request has been submitted successfully!");
         }
 
-        // Function to handle contact form submission
         function handleContactFormSubmit(event) {
-            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+            event.preventDefault();
             alert("Your message has been sent successfully!");
         }
 
         function updatePesticideOptions() {
             const cropType = document.getElementById("cropType").value;
             const pesticideSelect = document.getElementById("pesticide");
-            const pesticideInfo = document.getElementById("pesticide-info");
             const fungicideSelect = document.getElementById("fungicides");
-            
-            let pesticideOptions = [];
-            let fungicideOptions = [];
+            const pesticideInfo = document.getElementById("pesticide-info");
 
-            // Clear previous pesticide and fungicide options
             pesticideSelect.innerHTML = '';
             fungicideSelect.innerHTML = '';
 
-            if (cropType === "wheat") {
-                pesticideOptions = ['Fungicides', 'Insecticides', 'Herbicides'];
-                fungicideOptions = ['Azoxystrobin', 'Chlorothalonil'];
-            } else if (cropType === "corn") {
-                pesticideOptions = ['Fungicides', 'Insecticides', 'Herbicides'];
-                fungicideOptions = ['Azoxystrobin'];
-            } else if (cropType === "rice") {
-                pesticideOptions = ['Fungicides', 'Insecticides', 'Herbicides'];
-                fungicideOptions = ['Carbendazim'];
-            } else if (cropType === "soybean") {
-                pesticideOptions = ['Fungicides', 'Insecticides', 'Herbicides'];
-                fungicideOptions = ['Tebuconazole'];
+            if (!cropType) {
+                pesticideInfo.style.display = "none";
+                return;
             }
 
-            // Add pesticide options to the select element
-            pesticideOptions.forEach(function(option) {
+            pesticideInfo.style.display = "block";
+
+            const pesticideOptions = ["Fungicides", "Insecticides", "Herbicides"];
+            const fungicideMap = {
+                wheat: ["Azoxystrobin", "Chlorothalonil"],
+                corn: ["Azoxystrobin"],
+                rice: ["Carbendazim"],
+                soybean: ["Tebuconazole"]
+            };
+
+            pesticideOptions.forEach(option => {
                 let opt = document.createElement("option");
-                opt.value = option.toLowerCase();
                 opt.text = option;
+                opt.value = option.toLowerCase();
                 pesticideSelect.appendChild(opt);
             });
 
-            // Add fungicide options for specific crop types
-            fungicideOptions.forEach(function(option) {
+            fungicideMap[cropType].forEach(option => {
                 let opt = document.createElement("option");
-                opt.value = option.toLowerCase();
                 opt.text = option;
+                opt.value = option.toLowerCase();
                 fungicideSelect.appendChild(opt);
             });
-
-            pesticideInfo.style.display = cropType ? 'block' : 'none';
         }
     </script>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Kisan Shayak</h1>
-            <nav>
-                <ul>
-                    <li><a href="#intro">Introduction</a></li>
-                    <li><a href="#growth-stages">Crop Growth Stages</a></li>
-                    <li><a href="#farming-techniques">Farming Techniques</a></li>
-                    <li><a href="#sustainability">Sustainability</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!-- Header -->
+<header>
+    <div class="container nav-container">
+        <h1><i class="fas fa-seedling"></i> Kisan Shayak</h1>
+        <nav>
+            <ul>
+                <li><a href="#growth-stages">Growth</a></li>
+                <li><a href="#pesticides">Pesticides</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <!-- Introduction Section -->
-    <section id="intro">
-        <div class="container">
-            <h2>Welcome to Sustainable Agriculture</h2>
-            <p>Our mission is to promote sustainable farming practices that benefit both the environment and the farmers. Through innovative techniques, farmers can improve crop yields while preserving natural resources.</p>
-            <img src="https://st4.depositphotos.com/1002280/26413/i/950/depositphotos_264130082-stock-photo-farmers-working-in-rice-field.jpg" alt="Farmers working in a field" class="intro-image">
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Empowering Farmers with Smart Solutions</h2>
+        <p>Modern sustainable farming techniques for better yields.</p>
+        <a href="#pesticides" class="hero-btn">Explore Now</a>
+    </div>
+</section>
 
-    <!-- Crop Growth Stages Section -->
-    <section id="growth-stages">
-        <div class="container">
-            <h2>Crop Growth Stages</h2>
-            <div class="stages">
-                <div class="stage">
-                    <img src="https://images.stockcake.com/public/0/d/f/0df5e709-2fc6-40d2-ba10-e2675068e003_large/seedling-growth-stages-stockcake.jpg" alt="Seedling Stage">
-                    <h3>Stage 1: Germination</h3>
-                    <p>The process begins when the seed absorbs water and begins to sprout.</p>
-                </div>
-                <div class="stage">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgNW-Mjp-YYpIHwYgdLX9n4gHfCl5IHi_MLA&s" alt="Vegetative Stage">
-                    <h3>Stage 2: Vegetative Growth</h3>
-                    <p>The plant focuses on growing leaves, roots, and stems.</p>
-                </div>
-                <div class="stage">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-y3MXpZaV8mWfx5pODWams6cTgf0vhOjtPQ&s" alt="Flowering Stage">
-                    <h3>Stage 3: Flowering</h3>
-                    <p>The plant produces flowers which will eventually become fruit or seeds.</p>
-                </div>
-                <div class="stage">
-                    <img src="https://eos.com/wp-content/uploads/2023/04/rice-harvesting-on-a-field.jpg.webp" alt="Harvesting Stage">
-                    <h3>Stage 4: Harvesting</h3>
-                    <p>The crops are harvested to be used for food, seeds, or other products.</p>
-                </div>
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container stats-container">
+        <div class="stat">
+            <h3>500+</h3>
+            <p>Farmers Supported</p>
+        </div>
+        <div class="stat">
+            <h3>95%</h3>
+            <p>Crop Success Rate</p>
+        </div>
+        <div class="stat">
+            <h3>120+</h3>
+            <p>Villages Reached</p>
+        </div>
+    </div>
+</section>
+
+<!-- Growth Stages -->
+<section id="growth-stages" class="section">
+    <div class="container">
+        <h2 class="section-title">Crop Growth Stages</h2>
+        <div class="stages">
+            <div class="stage">
+                <i class="fas fa-seedling stage-icon"></i>
+                <h3>Germination</h3>
+                <p>Seed absorbs water and begins to sprout.</p>
+            </div>
+            <div class="stage">
+                <i class="fas fa-leaf stage-icon"></i>
+                <h3>Vegetative</h3>
+                <p>Plant grows leaves, roots, and stems.</p>
+            </div>
+            <div class="stage">
+                <i class="fas fa-spa stage-icon"></i>
+                <h3>Flowering</h3>
+                <p>Plant produces flowers and seeds.</p>
+            </div>
+            <div class="stage">
+                <i class="fas fa-tractor stage-icon"></i>
+                <h3>Harvesting</h3>
+                <p>Crops are collected for use.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Pesticide Selection Section -->
-    <section id="pesticides">
-        <div class="container">
-            <h2>Pesticides for Various Crops</h2>
-            <form action="#" method="post" class="pesticide-form" onsubmit="handlePesticideFormSubmit(event)">
-                <div class="form-pesticide">
-                    <label for="cropType">Choose Crop Type:</label>
-                    <select id="cropType" name="cropType" onchange="updatePesticideOptions()">
-                        <option value="">Select a crop</option>
-                        <option value="wheat">Wheat</option>
-                        <option value="corn">Corn</option>
-                        <option value="rice">Rice</option>
-                        <option value="soybean">Soybean</option>
-                    </select>
-                </div>
+<!-- Pesticides -->
+<section id="pesticides" class="section light">
+    <div class="container">
+        <h2 class="section-title">Pesticide Selection</h2>
 
-                <div id="pesticide-info" style="display:none;">
-                    <div class="form-group">
-                        <label for="pesticide">Select Pesticide:</label>
-                        <select id="pesticide" name="pesticide">
-                            <!-- Dynamic options based on crop -->
-                        </select>
-                    </div>
+        <form class="modern-form" onsubmit="handlePesticideFormSubmit(event)">
+            <label>Select Crop Type</label>
+            <select id="cropType" onchange="updatePesticideOptions()">
+                <option value="">Choose Crop</option>
+                <option value="wheat">Wheat</option>
+                <option value="corn">Corn</option>
+                <option value="rice">Rice</option>
+                <option value="soybean">Soybean</option>
+            </select>
 
-                    <div class="form-group">
-                        <label for="fungicides">Select Fungicide:</label>
-                        <select id="fungicides" name="fungicides">
-                            <!-- Dynamic fungicide options based on crop -->
-                        </select>
-                    </div>
+            <div id="pesticide-info" style="display:none;">
+                <label>Select Pesticide</label>
+                <select id="pesticide"></select>
 
-                    <div class="form-group">
-                        <label for="quantity">Quantity of Pesticide (in liters):</label>
-                        <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter amount in liters">
-                    </div>
+                <label>Select Fungicide</label>
+                <select id="fungicides"></select>
 
-                    <button type="submit" class="submit-btn">Submit</button>
-                </div>
-            </form>
-        </div>
-    </section>
+                <label>Quantity (Liters)</label>
+                <input type="number" min="1" placeholder="Enter quantity">
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="#" method="POST" id="contact-form" onsubmit="handleContactFormSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section>
+                <button type="submit">Submit Request</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="modern-form" onsubmit="handleContactFormSubmit(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Kisan Shayak | Empowering Sustainable Agriculture 🌾</p>
+</footer>
 
 </body>
 </html>
